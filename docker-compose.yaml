@@ -1,0 +1,15 @@
+version: "3.9"
+
+# https://www.baeldung.com/spring-boot-self-hosted-monitoring
+
+services:
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
