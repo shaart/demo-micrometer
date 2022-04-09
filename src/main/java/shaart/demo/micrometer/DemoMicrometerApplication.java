@@ -2,13 +2,18 @@ package shaart.demo.micrometer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
+@EnableJpaAuditing
+@EnableJpaRepositories
 @EnableScheduling
 @SpringBootApplication
 public class DemoMicrometerApplication {
@@ -17,7 +22,7 @@ public class DemoMicrometerApplication {
     SpringApplication.run(DemoMicrometerApplication.class, args);
   }
 
-  @Scheduled(fixedDelay = 10_000)
+  @Scheduled(fixedDelay = 240, timeUnit = TimeUnit.SECONDS)
   public void doSmth() throws InterruptedException {
     List<Stats> stats = new ArrayList<>();
     Stats currentStats = new Stats("stat" + 0);
@@ -28,7 +33,7 @@ public class DemoMicrometerApplication {
         continue;
       }
       currentStats.addSubstats(new Stats("substat" + i, calcMin(), calcMax()));
-      if (i % 100 == 0) {
+      if (i % 10_000 == 0) {
         System.out.printf("#%d%n", i);
       }
     }

@@ -3,3 +3,17 @@ management:
     web:
       exposure:
         include: "*"
+
+## default connection pool
+spring:
+  datasource:
+    ## PostgreSQL
+    url: jdbc:postgresql://localhost:5432/local_db
+    username: user
+    password: password
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+  jpa:
+    hibernate:
+      ddl-auto: none
