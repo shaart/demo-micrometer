@@ -1,5 +1,6 @@
 package shaart.demo.micrometer;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
+@Slf4j
 @EnableJpaAuditing
 @EnableJpaRepositories
 @EnableScheduling
@@ -34,10 +36,10 @@ public class DemoMicrometerApplication {
       }
       currentStats.addSubstats(new Stats("substat" + i, calcMin(), calcMax()));
       if (i % 10_000 == 0) {
-        System.out.printf("#%d%n", i);
+        log.info("#{}", i);
       }
     }
-    System.out.println(stats);
+    log.info("{}", stats);
   }
 
   private int calcMin() {
