@@ -3,6 +3,9 @@ management:
     web:
       exposure:
         include: "*" #may be "health,info,prometheus"
+  metrics:
+    tags:
+      application: 'demo-micrometer'
 spring:
   application:
     name: demo-micrometer
