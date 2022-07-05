@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class CalculationJob {
 
-  @Timed(value = "sample.calculations", description = "Time taken to do sample calculations")
+  @Timed(value = "sample_calculations", description = "Time taken to do sample calculations")
   @Scheduled(fixedDelay = 60, timeUnit = TimeUnit.SECONDS)
   public void calcJob() {
     log.info("## Calc job start");
