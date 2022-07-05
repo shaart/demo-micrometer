@@ -2,12 +2,15 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
-
-## default connection pool
+        include: "*" #may be "health,info,prometheus"
 spring:
+  application:
+    name: demo-micrometer
+  task:
+    scheduling:
+      pool:
+        size: 2
   datasource:
-    ## PostgreSQL
     url: jdbc:postgresql://localhost:5432/local_db
     username: user
     password: password
