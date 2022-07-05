@@ -8,6 +8,9 @@ Spring Boot Web `Micrometer` metrics sample project for `Prometheus` + `Grafana`
 
 ---
 
+## Application
+The property `management.metrics.tags.application` configures label "application" for all metrics exported from this service.
+
 ## Grafana
 URL: http://localhost:3000/
 ### Configuration
@@ -22,9 +25,7 @@ Default datasource "Prometheus" creates on start.
 It's defined in [grafana/provisioning/datasources/prometheus_ds.yaml](grafana/provisioning/datasources/prometheus_ds.yaml)
 #### Default dashboards
 - https://grafana.com/grafana/dashboards/6756
-
-### Links
-Community dashboards hub: https://grafana.com/grafana/dashboards/
+- custom board for custom metric
 
 ---
 
@@ -32,3 +33,9 @@ Community dashboards hub: https://grafana.com/grafana/dashboards/
 URL: http://localhost:9090/graph
 ### Configuration
 Prometheus config is defined in [prometheus/prometheus.yaml](prometheus/prometheus.yaml)
+
+---
+
+## Links
+- Community dashboards hub: https://grafana.com/grafana/dashboards/
+- Spring prometheus docs: https://docs.spring.io/spring-metrics/docs/current/public/prometheus
