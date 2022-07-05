@@ -13,7 +13,7 @@
 
   <groupId>shaart.demo</groupId>
   <artifactId>demo-micrometer</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>demo-micrometer</name>
   <description>demo-micrometer</description>
 
